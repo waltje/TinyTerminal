@@ -1,0 +1,25 @@
+# Makefile for use with MSYS2's MinGW-w64.
+ARCH	= -m32
+#ARCH	= -m64
+
+CC	= gcc
+LD	= gcc
+
+COPTS	= $(ARCH) -O2
+LOPTS	= $(ARCH) -s
+
+LDLIBS	= -lcomdlg32 -luser32
+
+
+tt.exe:		tt.c tt.h
+		@$(CC) $(LOPTS) -ott.exe $(COPTS) tt.c $(LDLIBS)
+
+
+clean:
+		@-del *.o *.res 2>NUL
+
+clobber:	clean
+		@-del *.exe 2>NUL
+
+
+# End of Makefile.MinGW.

@@ -1,0 +1,19 @@
+# Makefile for use with Visual Studio commandline.
+CC	= cl /nologo
+COPTS	= /Os
+
+LDLIBS	= comdlg32.lib user32.lib
+
+
+tt.exe:		tt.c tt.h
+		@$(CC) $(COPTS) /Fett.exe tt.c $(LDLIBS)
+
+
+clean:
+		@-del *.obj *.res 2>NUL
+
+clobber:	clean
+		@-del *.exe 2>NUL
+
+
+# End of Makefile.MSVC.

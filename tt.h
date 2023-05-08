@@ -2,28 +2,28 @@
  *
  * (c) 2015 Martin Boekhoff
  */
-
 #ifndef TT_H
-#define TT_H
+# define TT_H
 
-typedef void (*extKeyHandler_t)(int key);
-typedef void (*extRecv_t)(char recvByte);
+
+typedef void (*KeyHandler_t)(int key);
+typedef void (*Recv_t)(char recvByte);
 
 typedef struct {
-	char name[20];
-	int  comDcb;
-	int  comBps;
-	int  comData;
-	int  comStop;
-	int  comParity;
-	BOOL comCtsflow;
-	int  comPol;
-	extKeyHandler_t eventHandler;
-	extRecv_t reveiveFunc;
+    char	name[20];
+    int		comDcb;
+    int		comBps;
+    int		comData;
+    int		comStop;
+    int		comParity;
+    BOOL	comCtsflow;
+    int		comPol;
+    KeyHandler_t eventHandler;
+    Recv_t	receiveFunc;
 } extension_data_t;
 
-char registerExtension(extension_data_t extData);
+
+extern char	registerExtension(extension_data_t extData);
 
 
-
-#endif
+#endif	/*TT_H*/
